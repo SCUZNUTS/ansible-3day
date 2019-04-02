@@ -3,11 +3,11 @@
 - name: Create a server instance
   os_server:
     cloud: ospcloud
-    name: "{{ webserver_name }}"
+    name: "{{ item.webserver_name }}"
     image: rhel-guest
-    meta: "group={{ webserver_group }},deployment_name={{ deployment }}"
-    flavor: "{{ flavor_name }}"
-    security_groups: "{{ security_groups }}"
+    meta: "group={{ item.webserver_group }},deployment_name={{ item.deployment }}"
+    flavor: "{{ item.flavor_name }}"
+    security_groups: "{{ item.security_groups }}"
     key_name: ansible_ssh
     nics:
     - net-name: int_network
@@ -18,3 +18,4 @@
       curl -o /tmp/internal.repo http://www.opentlc.com/download/ansible_bootcamp/repo/internal.repo
       cp /tmp/internal.repo /etc/yum.repos.d/internal.repo
   register: webserverip
+  loop: "{{ cloud_instances }}"
