@@ -2,5 +2,5 @@
   hosts: localhost
   roles:
    - { role: ../roles/create_osp_instances }
-  include_vars:
+  vars_files:
     - vars/hosts_to_create.yml
