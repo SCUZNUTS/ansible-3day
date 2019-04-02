@@ -3,4 +3,4 @@
   roles:
    - { role: ../roles/create_osp_instances }
   vars_files:
-    - vars/hosts_to_create.yml
+    - hosts_to_create.yml
