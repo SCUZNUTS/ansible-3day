@@ -1,0 +1,4 @@
+- name: Update inventory
+  hosts: workstation
+  roles:
+   - { role: ../roles/inventory_gather }
