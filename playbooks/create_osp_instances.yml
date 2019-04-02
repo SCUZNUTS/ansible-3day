@@ -1,0 +1,6 @@
+- name: Create osp instances
+  hosts: localhost
+  roles:
+   - { role: ../roles/create_osp_instances }
+  include_vars:
+    - vars/hosts_to_create.yml
