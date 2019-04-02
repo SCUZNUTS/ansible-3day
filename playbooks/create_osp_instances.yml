@@ -1,5 +1,5 @@
 - name: Create osp instances
-  hosts: localhost
+  hosts: workstation
   roles:
    - { role: ../roles/create_osp_instances }
   vars_files:
