@@ -19,13 +19,13 @@
   tags:
     - deploy_haproxy
 
-- setup:
-  register: setup_data
-  tags:
-    - config_haproxy
+#- setup:
+#  register: setup_data
+#  tags:
+#    - config_haproxy
   
 - debug:
-    var: setup_data
+    var: ansible_facts.ansible_hostname
   tags:
     - config_haproxy
 
