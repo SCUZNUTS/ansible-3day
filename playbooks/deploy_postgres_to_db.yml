@@ -1,4 +1,5 @@
 - name: deploy postgres to db servers
   hosts: appdbs
+  gather_facts: false
   roles:
    - { role: ../roles/deploy_postgres }

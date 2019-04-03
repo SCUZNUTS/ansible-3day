@@ -1,5 +1,6 @@
 - name: deploy tomcat and apache to app servers
   hosts: apps
+  gather_facts: false
   roles:
    - { role: ../roles/deploy_tomcat }
    - { role: ../roles/config_tomcat }
