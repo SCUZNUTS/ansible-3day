@@ -32,7 +32,7 @@
   register: instancefloatingip
   loop: "{{ cloud_instances }}"
 - name: Show public IP
-  debug: var=instancefloatingip.floating_ip.floating_ip_address
+  debug: var=instancefloatingip
   loop: "{{ cloud_instances }}"
 - name: Wait for "{{ item.webserver_name }}" to be available
   wait_for:
