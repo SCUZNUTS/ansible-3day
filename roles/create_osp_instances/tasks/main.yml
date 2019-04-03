@@ -19,3 +19,25 @@
       cp /tmp/internal.repo /etc/yum.repos.d/internal.repo
   register: webserverip
   loop: "{{ cloud_instances }}"
+
+- name: Add floating IP to "{{ item.webserver_name }}"
+  os_floating_ip:
+    cloud: ospcloud
+    state: present
+    reuse: yes
+    server: "{{ item.webserver_name }}"
+    network: ext_network
+    wait: true
+    timeout: 180
+  register: instancefloatingip
+  loop: "{{ cloud_instances }}"
+- name: Show public IP
+  debug: var=instancefloatingip.floating_ip.floating_ip_address
+  loop: "{{ cloud_instances }}"
+- name: Wait for "{{ item.webserver_name }}" to be available
+  wait_for:
+    host: "{{ instancefloatingip.floating_ip.floating_ip_address }}"
+    port: 22
+    search_regex: OpenSSH
+    timeout: 600
+  loop: "{{ cloud_instances }}"
