@@ -10,7 +10,6 @@
   become: true
   tags:
     - deploy_haproxy
-    - config_haproxy
 
 - name: Ensure HAproxy set to start on boot
   service:
@@ -19,6 +18,16 @@
   become: true
   tags:
     - deploy_haproxy
+
+- setup:
+  register: setup_data
+  tags:
+    - config_haproxy
+  
+- debug:
+    var: setup_data
+  tags:
+    - config_haproxy
 
 - name: Configure haproxy with template
   template:
