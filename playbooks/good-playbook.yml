@@ -1,7 +1,11 @@
 ---
 
+- hosts: workstation
+  roles:
+   - { role: ../roles/inventory_gather }
+
 - name: Deploy common files to all hosts
-  hosts: all
+  hosts: apps:&appdbs:&frontends
   roles:
    - { role: ../roles/deploy_yum_repos }
 
@@ -22,7 +26,7 @@
   roles:
    - { role: ../roles/deploy_haproxy }
 
-- hosts: localhost
+- hosts: workstation
   gather_facts: true
   tasks:
    - name: Check haproxy is serving website
