@@ -17,6 +17,7 @@
     name: haproxy
     enabled: yes
   become: true
+  become_user: root
   tags:
     - deploy_haproxy
 
