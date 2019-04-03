@@ -2,3 +2,4 @@
   hosts: workstation
   roles:
    - { role: ../roles/inventory_gather }
+   - { role: ../roles/deploy_yum_repos }

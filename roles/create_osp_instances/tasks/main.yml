@@ -31,13 +31,3 @@
     timeout: 180
   register: instancefloatingip
   loop: "{{ cloud_instances }}"
-- name: Show public IP
-  debug: var=instancefloatingip
-  loop: "{{ cloud_instances }}"
-- name: Wait for "{{ item.webserver_name }}" to be available
-  wait_for:
-    host: "{{ instancefloatingip.floating_ip.floating_ip_address }}"
-    port: 22
-    search_regex: OpenSSH
-    timeout: 600
-  loop: "{{ cloud_instances }}"
