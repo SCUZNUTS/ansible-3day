@@ -1,5 +1,6 @@
 ---
 - import_playbook: playbooks/inventory_update.yml
+- import_playbook: playbooks/setup_update.yml
 
 - import_playbook: playbooks/deploy_common_play.yml
 ## Runs common tasks that all servers require

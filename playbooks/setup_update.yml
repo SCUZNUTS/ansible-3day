@@ -1,0 +1,6 @@
+- name: Update hostvars
+  hosts: all
+  tasks:
+   - setup:
+     tags:
+       - config_haproxy
