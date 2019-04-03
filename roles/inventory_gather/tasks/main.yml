@@ -7,6 +7,6 @@
 - name: Create in-memory inventory
   add_host:
     name: "{{ item.public_v4 }}"
-    group: "{{ item.metadata.group }}"
-    group: "{{ item.metadata.deployment_name }}"
+    groups: "{{ item.metadata.group }}"
+    groups: "{{ item.metadata.deployment_name }}"
   loop: "{{ r_os_servers.ansible_facts.openstack_servers }}"
