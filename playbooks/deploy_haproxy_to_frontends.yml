@@ -1,5 +1,5 @@
 - name: deploy haproxy to frontend
   hosts: frontends
-  gather_facts: false
+  gather_facts: true
   roles:
    - { role: ../roles/deploy_haproxy }

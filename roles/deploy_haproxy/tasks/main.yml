@@ -28,4 +28,5 @@
     - restart HAproxy
   tags:
     - config_haproxy
+    - deploy_haproxy
   become: true
