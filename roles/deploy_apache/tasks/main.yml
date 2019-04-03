@@ -15,4 +15,3 @@
     name: httpd
     enabled: yes
   become: true
-  become_user: root
