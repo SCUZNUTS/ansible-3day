@@ -8,5 +8,5 @@
   add_host:
     name: "{{ item.public_v4 }}"
     groups: "{{ item.metadata.group }}"
-    groups: "{{ item.metadata.deployment_name }}"
+#    groups: "{{ item.metadata.deployment_name }}"
   loop: "{{ r_os_servers.ansible_facts.openstack_servers }}"
